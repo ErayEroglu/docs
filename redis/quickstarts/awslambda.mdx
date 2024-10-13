@@ -1,5 +1,5 @@
 ---
-title: " AWS Lambda"
+title: "AWS Lambda"
 ---
 
 <Snippet file="redis/redisclientnote.mdx" />
@@ -7,17 +7,17 @@ title: " AWS Lambda"
 ### Database Setup
 
 Create a Redis database using [Upstash Console](https://console.upstash.com) or
-[Upstash CLI](https://github.com/upstash/cli). Select the same region with your
-AWS Lambda to minimize the latency. Copy the `UPSTASH_REDIS_REST_URL` and
+[Upstash CLI](https://github.com/upstash/cli). Select the same region as your
+AWS Lambda to minimize latency. Copy the `UPSTASH_REDIS_REST_URL` and
 `UPSTASH_REDIS_REST_TOKEN` for the next steps.
 
 ### Project Setup
 
 We will use
-[Serverless Framework](https://www.serverless.com/framework/docs/getting-started)
+[Serverless Framework](https://www.serverless.com/framework/docs/getting-started),
 but you can use AWS SAM or others.
 
-Run `npx serverless` and select the `AWS - Node.js - HTTP API`
+Run `npx serverless` and select the `AWS - Node.js - HTTP API`.
 
 ```shell
 npx serverless
@@ -27,7 +27,7 @@ Creating a new serverless project
 ? What do you want to make? AWS - Node.js - HTTP API
 ? What do you want to call this project? aws-node-http-api-project
 
-✔ Project successfully created in aws-node-http-api-project folder
+â Project successfully created in aws-node-http-api-project folder
 
 ? Do you want to login/register to Serverless Dashboard? No
 
@@ -53,7 +53,7 @@ npm install @upstash/redis
 ### The Code
 
 Update `handler.js` as below and replace `UPSTASH_REDIS_REST_URL` and
-`UPSTASH_REDIS_REST_TOKEN`:
+`UPSTASH_REDIS_REST_TOKEN`.
 
 ```js
 const { Redis } = require("@upstash/redis/with-fetch");
@@ -76,7 +76,7 @@ module.exports.hello = async (event) => {
 
 ### Deploy
 
-Deploy your function with `npx serverless deploy`
+Deploy your function with `npx serverless deploy`.
 
 The endpoint of the AWS Lambda function will be printed.
 
