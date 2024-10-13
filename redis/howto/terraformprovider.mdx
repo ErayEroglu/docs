@@ -2,13 +2,13 @@
 title: Terraform Provider
 ---
 
-You can use Upstash terraform provider to create your resources. API key is
+You can use the Upstash Terraform provider to create your resources. An API key is
 required in order to create resources.
 
 ### Configure Provider
 
-Provider requires your email address and api key which can be created in
-console.
+The provider requires your email address and API key, which can be created in
+the console.
 
 ```
 provider "upstash" {
@@ -19,7 +19,7 @@ provider "upstash" {
 
 ### Create Database
 
-As input you need to give database name, region and type.
+As input, you need to give the database name, region, and type.
 
 ```
 resource "upstash_database" "mydb" {
@@ -29,7 +29,7 @@ resource "upstash_database" "mydb" {
 }
 ```
 
-You can output database credentials as following
+You can output database credentials as follows:
 
 ```
 output "endpoint" {
@@ -46,4 +46,4 @@ output "password" {
 
 See our
 [Terraform Provider Github Repository](https://github.com/upstash/terraform-provider-upstash)
-for details and examples about Upstash Terraform Provider.
+for details and examples about the Upstash Terraform Provider.
