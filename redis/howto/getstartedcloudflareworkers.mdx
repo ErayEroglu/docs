@@ -2,9 +2,9 @@
 title: Get Started with Cloudflare Workers
 ---
 
-This tutorial showcases using Redis with REST API in Cloudflare Workers. We will
+This tutorial showcases using Redis with a REST API in Cloudflare Workers. We will
 write a sample edge function (Cloudflare Workers) which will show a custom
-greeting depending on the location of the client. We will load the greeting
+greeting depending on the client's location. We will load the greeting
 message from Redis so you can update it without touching the code.
 
 See
@@ -12,24 +12,24 @@ See
 
 ### Why Upstash?
 
-- Cloudflare Workers does not allow TCP connections. Upstash provides REST API
+- Cloudflare Workers do not allow TCP connections. Upstash provides a REST API
   on top of the Redis database.
-- Upstash is a serverless offering with per-request pricing which fits for edge
+- Upstash is a serverless offering with per-request pricing that fits edge
   and serverless functions.
-- Upstash Global database provides low latency all over the world.
+- The Upstash Global database provides low latency all over the world.
 
-### Step-1: Create Redis Database
+### Step-1: Create a Redis Database
 
 Create a free Global database from
 [Upstash Console](https://console.upstash.com). Find your REST URL and token in
 the database details page in the console. Copy them.
 
-Connect your database with redis-cli and add some greetings
+Connect your database with redis-cli and add some greetings:
 
 ```shell
 usw1-selected-termite-30690.upstash.io:30690> set GB "Ey up?"
 OK
-usw1-selected-termite-30690.upstash.io:30690> set US "Yo, what’s up?"
+usw1-selected-termite-30690.upstash.io:30690> set US "Yo, whatâs up?"
 OK
 usw1-selected-termite-30690.upstash.io:30690> set TR "Naber dostum?"
 OK
@@ -40,13 +40,13 @@ usw1-selected-termite-30690.upstash.io:30690> set DE "Was ist los?"
 
 The best way to work with Cloudflare Workers is to use
 [Wrangler](https://developers.cloudflare.com/workers/get-started/guide). After
-installing and configuring wrangler, create a folder for your project inside the
-folder run: `wrangler init`
+installing and configuring Wrangler, create a folder for your project. Inside the
+folder, run: `wrangler init`
 
-Choose `yes` to create package.json, `no` to typescript and `yes` to create a
+Choose `yes` to create package.json, `no` to typescript, and `yes` to create a
 worker in src/index.js.
 
-It will create `wrangler.toml`, `package.json` and `src/index.js`.
+This will create `wrangler.toml`, `package.json` and `src/index.js`.
 
 Append the Upstash REST URL and token to the toml as below:
 
@@ -86,11 +86,11 @@ export default {
 };
 ```
 
-The code tries to find out the user's location checking the "cf-ipcountry"
+The code tries to find out the user's location by checking the "cf-ipcountry"
 header. Then it loads the correct greeting for that location using the Redis
 REST API.
 
-## Run locally
+## Run Locally
 
 Run `wrangler dev` and open your browser at
 [localhost:8787](http://localhost:8787).
@@ -99,10 +99,10 @@ Run `wrangler dev` and open your browser at
 
 Build and deploy your app to Cloudflare by running: `wrangler publish`
 
-The url of your app will be logged:
+The URL of your app will be logged:
 [https://using-cloudflare-workers.upstash.workers.dev/](https://using-cloudflare-workers.upstash.workers.dev/)
 
-## Typescript example
+## Typescript Example
 
-We also have a typescript example, available
+We also have a TypeScript example, available
 [here](https://github.com/upstash/upstash-redis/tree/main/examples/cloudflare-workers-with-typescript).
