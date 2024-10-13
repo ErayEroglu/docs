@@ -1,12 +1,12 @@
 ---
-title: Backendless Coin Price List with GraphQL API, Serverless Redis and Next.JS
+title: Backendless Coin Price List with GraphQL API, Serverless Redis, and Next.JS
 
 image: img/coin-price-list/coin-price-list.png
 ---
 
-In this tutorial, we will develop a simple coin price list using GraphQL API of
-Upstash. You can call the application `backendless` because we will access the
-database directly from the client (javascript). See the
+In this tutorial, we will develop a simple coin price list using the GraphQL API
+of Upstash. You can call the application `backendless` because we will access the
+database directly from the client (JavaScript). See the
 [code](https://github.com/upstash/examples/tree/master/examples/coin-price-list).
 
 <Frame>
@@ -16,16 +16,16 @@ database directly from the client (javascript). See the
 ## Motivation
 
 We want to give a use case where you can use the GraphQL API without any backend
-code. The use case is publicly available read only data for web applications
+code. The use case involves publicly available read-only data for web applications
 where you need low latency. The data is updated frequently by another backend
-application, you want your users to see the last updated data. Examples:
-Leaderboards, news list, blog list, product list, top N items in the homepages.
+application; you want your users to see the latest updated data. Examples:
+Leaderboards, news lists, blog lists, product lists, top N items on homepages.
 
 ### `1` Project Setup:
 
 Create a Next application: `npx create-next-app`.
 
-Install Apollo GraphQL client: `npm i @apollo/client`
+Install the Apollo GraphQL client: `npm i @apollo/client`
 
 ### `2` Database Setup
 
@@ -38,12 +38,12 @@ rpush coins '{ "name" : "Bitcoin", "price": 56819, "image": "https://s2.coinmark
 
 ### `3` Code
 
-In the Upstash console, copy the read only access key in your API configuration
-page (GraphQL Explorer > Configure API). In the `_app.js` create the Apollo
-client and replace the your access key as below:
+In the Upstash console, copy the read-only access key on your API configuration
+page (GraphQL Explorer > Configure API). In the `_app.js`, create the Apollo
+client and replace your access key as below:
 
 <Warning>
-  You need to use Read Only Access Key, because the key will be accessible
+  You need to use a Read-Only Access Key, because the key will be accessible
   publicly.
 </Warning>
 
@@ -62,7 +62,7 @@ const link = createHttpLink({
     Authorization: "Bearer YOUR_ACCESS_TOKEN",
   },
 });
-const client = new ApolloClient({
+const client = an ApolloClient({
   uri: "https://graphql-us-east-1.upstash.io/",
   cache: new InMemoryCache(),
   link,
@@ -71,7 +71,7 @@ const client = new ApolloClient({
 function MyApp({ Component, pageProps }) {
   return (
     <ApolloProvider client={client}>
-      <Component {...pageProps} />{" "}
+      <Component {...pageProps} /> 
     </ApolloProvider>
   );
 }
@@ -155,4 +155,4 @@ Run your application locally: `npm run dev`
 
 ### `5` Live!
 
-Go to [http://localhost:3000/](http://localhost:3000/) 🎉
+Go to [http://localhost:3000/](http://localhost:3000/) ð
